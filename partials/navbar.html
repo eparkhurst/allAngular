@@ -1,0 +1,21 @@
+<h1>Welcome to the Tea Shop</h1>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ng-click="tab1 = false; tab2 = false" href="#/tea">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: tab1}" ng-click="tab1 = true; tab2 = false"><a href="#/item">About <span class="sr-only">(current)</span></a></li>
+        <li ng-class="{active: tab2}"  ng-click="tab2 = true; tab1 = false"><a href="#">Contact</a></li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

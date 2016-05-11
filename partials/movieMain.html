@@ -1,0 +1,9 @@
+<movie-nav-bar></movie-nav-bar>
+<div class="panel panel-default movie" ng-repeat="movie in movies">
+  <a ng-click="getMovieDetails(movie.imdbID)" href="/#/details">
+    <div class="panel panel-heading">{{movie.Title}}</div>
+    <div class="panel panel-body">
+      {{movie.Year}}
+    </div>
+  </a>
+</div>

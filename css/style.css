@@ -1,0 +1,63 @@
+.main-page{
+  text-align: center;
+}
+
+.redditImg{
+  height:300px;
+  width:300px;
+}
+.outer{
+  display:flex;
+  justify-content: flex-start;
+  background-color: lightgrey;
+  margin:1em 5em;
+}
+
+.top-info{
+    display:flex;
+    justify-content: flex-start;
+}
+.top-info h3{
+  margin-left: 1em
+}
+.comments{
+  align-self: flex-end;
+}
+.red{
+  color:red;
+}
+.green{
+  color:green;
+}
+
+/*From movie Search*/
+
+.movie{
+  width:40%;
+  margin:3px auto;
+}
+h1{
+  text-align: center;
+}
+h3{
+  text-align: center;
+}
+.search{
+  margin:auto;
+  text-align: center;
+}
+.btn{
+    margin:auto;
+}
+.deets{
+  width:70%;
+  margin:auto;
+}
+.movie-img{
+  width:200px;
+  float: left;
+  margin:5px;
+}
+.moreDetails{
+  display: inline-block;
+}

@@ -1,0 +1,59 @@
+
+<div ng-controller="RedditController">
+      <button type="button" ng-click="revealPostForm()">NewPost</button>
+      {{sort}}
+      <input type="text" name="search" ng-model="searchText" placeholder="search">
+      <select class="" name="sort" ng-model="sort">
+        <option value="votes">Votes</option>
+        <option value="title">Title</option>
+        <option value="date">Date</option>
+      </select>
+      <div class="postForm" ng-show="showPost">
+        <form name="postForm" novalidate>
+          <label for="title">Title</label>
+          <input type="text" name="title" ng-model="post.title">
+          <label for="author">Author</label>
+          <input type="text" name="author" ng-model="post.author">
+          <label for="imageUrl">Image url</label>
+          <input type="text" name="imageUrl" ng-model="post.image">
+          <label for="description">Description</label>
+          <textarea name="description" rows="8" cols="40" ng-model="post.description"></textarea>
+          <button type="button" name="submitPost" ng-click="addPost(); clearForm(postForm)">Submit Post</button>
+        </form>
+      </div>
+      <div class="outer" ng-repeat="thing in info | orderBy:sort:true | filter:searchText ">
+          <div class="">
+            <img class="redditImg"src={{thing.image}} alt="" />
+          </div>
+          <div class="information">
+            <div class="top-info">
+              <h3>{{thing.title}}</h3>
+              <h3 ng-class="{red:thing.votes<0, green:thing.votes>0}">{{thing.votes}}</h3>
+              <div ng-click="upVote()" class="upVote">
+                <h1>&uarr;</h1>
+              </div>
+              <div ng-click="downVote()" class="downVote">
+                <h1>&darr;	</h1>
+              </div>
+            </div>
+            <h3>{{thing.author}}</h3>
+            <p>{{thing.description}}</p>
+            <button type="button" name="comments" ng-click='activateComments()'>Comments</button>
+            <span>{{thing.date | date: 'MM/dd/yyyy'}}</span>
+            <button type="button" name="addComment" ng-click="showNewComment()">Add Comment</button>
+            <div ng-show="this.thing.newCommentVisible" class="newComment">
+              <form class="" name="commentForm">
+                <label for="newComment">New Comment</label>
+                <textarea name="newComment" rows="8" cols="40" ng-model="comment.text"></textarea>
+                <label for="author">Author</label>
+                <input type="text" name="author" ng-model="comment.author">
+                <button type="button" name="submitComment" ng-click="addComment()">Submit Comment</button>
+              </form>
+            </div>
+            <div ng-show="this.thing.commentStat" class="comments" ng-repeat="comment in thing.comments">
+              <span><strong>{{comment.author}} -</strong></span>
+              <span>{{comment.text}}</span>
+            </div>
+          </div>
+      </div>
+    </div>
